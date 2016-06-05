@@ -1,4 +1,4 @@
-(function (window, Services, ViewModels) {
+(function (window, Services, ViewModels, Utl) {
 
 
     function RelatedArtistController() {
@@ -8,6 +8,7 @@
     }
 
     RelatedArtistController.prototype.activate = activate
+    RelatedArtistController.prototype.clean = clean
 
     // RelatedArtistController.prototype.activate = activate
     // var relatedArtists = []
@@ -21,7 +22,8 @@
 
         function onGetData(data) {
             if (!data) {
-
+                alert('sorry, no data to display')
+                return
             }
             this.relatedArtists = data.map(everyArtist.bind(this))
             // console.log(relatedArtists)
@@ -38,6 +40,9 @@
         }
     }
 
+    function clean() {
+        Utl.cleanNode(this.container)
+    }
 
 
     window.Controllers = window.Controllers || {}
@@ -49,4 +54,4 @@
     //     container: container
     // }
 
-})(window, Services, ViewModels);
+})(window, Services, ViewModels, Utl);
