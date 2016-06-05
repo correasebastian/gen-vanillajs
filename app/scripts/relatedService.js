@@ -5,18 +5,19 @@
      * author module
      */
 
-    var root = 'https://api.spotify.com/v1/';
+    var rootUrl = 'https://api.spotify.com/v1/';
     var OK = 200
 
 
     //api for the service
     var service = {
-        getRealtedArtist: getRealtedArtist
+        getRealtedArtist: getRealtedArtist,
+        getArtist: getArtist
     }
 
     ///methods definition
     function getRealtedArtist(id, cb) {
-        var relatedUrl = 'https://api.spotify.com/v1/artists/4dpARuHxo51G3z768sgnrY/related-artists'
+        var relatedUrl = rootUrl + 'artists/4dpARuHxo51G3z768sgnrY/related-artists'
         var relatedArtists = []
         function normalize(data) {
             if (typeof data === 'object' && data.artists)
@@ -25,6 +26,20 @@
 
         }
         xhr(relatedUrl, normalize)
+    }
+
+    function getArtist(id, cb) {
+
+        var artistUrl = rootUrl + 'artists/4dpARuHxo51G3z768sgnrY'
+        var artist
+        function normalize(data) {
+            debugger
+            if (typeof data === 'object')
+                artist = data
+            cb(artist)
+
+        }
+        xhr(artistUrl, normalize)
     }
 
 

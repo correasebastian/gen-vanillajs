@@ -7,11 +7,11 @@
         this.name = name;
         this.id = id
         this.imgs = imgs;
-        this.create()
+        // this.create()
     }
 
-    RelatedArtist.prototype.create = function () {
-        var container = document.getElementById('ulRelated');
+    RelatedArtist.prototype.getArtistElement = function () {
+        // var container = document.getElementById('ulRelated');
 
         //container for every relatedArtist
         var mainDiv = document.createElement('div');
@@ -26,7 +26,7 @@
         var template = [
             '<div class="some-directive">',
             '<img src="' + this.imgs[this.imgs.length - 1].url + '">',
-            '<h1>' + this.name + '</h1>',
+            '<h4>' + this.name + '</h4>',
             '</div>'
         ].join('')
 
@@ -49,7 +49,8 @@
         mainDiv.appendChild(templateDiv)
 
         //insert to the  related artist container 
-        container.appendChild(mainDiv);
+        // container.appendChild(mainDiv);
+        return mainDiv;
 
     };
 
