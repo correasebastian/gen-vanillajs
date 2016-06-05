@@ -2,6 +2,7 @@
 (function (window, document) {
     /**
      * treat error handling like event handling in JavaScript.
+     * so, this will capture sync and async , awesome
      */
     window.addEventListener('error', function (e) {
         var stack = e.error.stack;
