@@ -1,5 +1,8 @@
 (function (window, Services, ViewModels, Utl) {
 
+/**
+ *  @param  {string} spotifyId -  The spotify  Id of your artist. 
+ */
 
     function ArtistController(spotifyId) {
         this.artist;
@@ -7,17 +10,14 @@
         this.spotifyId = spotifyId
         this.listen();
         this.activate();
-        
+
 
     }
 
     ArtistController.prototype.activate = activate
     ArtistController.prototype.clean = clean
-   ArtistController.prototype.listen =listen
+    ArtistController.prototype.listen = listen
 
-    // var Artist;
-
-    // activate()
 
     //methods
 
@@ -39,7 +39,7 @@
 
     function listen() {
         window.events.on('changeId', onChangeId.bind(this))
-
+        
         function onChangeId(id) {
             this.spotifyId = id
             this.activate()
@@ -51,10 +51,8 @@
     }
 
 
-
+    //resgister the controller
     window.Controllers = window.Controllers || {}
-
-
     window.Controllers.ArtistController = ArtistController
 
 

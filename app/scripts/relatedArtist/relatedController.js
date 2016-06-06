@@ -1,6 +1,9 @@
 (function (window, Services, ViewModels, Utl) {
 
-
+/**
+ * constructor
+ * @param  {string} spotifyId -  The spotify  Id of your artist. 
+ */
     function RelatedArtistController(spotifyId) {
         this.relatedArtists = []
         this.container = document.getElementById('ulRelated');
@@ -13,24 +16,22 @@
     RelatedArtistController.prototype.clean = clean
     RelatedArtistController.prototype.listen =listen
 
-    // RelatedArtistController.prototype.activate = activate
-    // var relatedArtists = []
-    // var container = document.getElementById('ulRelated');
-
-    // activate()
+  
 
     //methods
     function activate() {
         Services.XHR.getRealtedArtist(this.spotifyId, onGetData.bind(this))
 
         function onGetData(data) {
+            
+            //warn if there is no data from server
             if (!data) {
                 alert('sorry, no related artist  to display')
                 return
             }
             this.clean()
             this.relatedArtists = data.map(everyArtist.bind(this))
-            // console.log(relatedArtists)
+        
         }
 
         function everyArtist(artist) {

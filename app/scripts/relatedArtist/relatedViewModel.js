@@ -42,7 +42,7 @@
         function onClick(e) {
 
             e.preventDefault()
-            console.log('on click', this)
+            // console.log('on click', this)
             window.events.emit('changeId',this.id)
         }
 
