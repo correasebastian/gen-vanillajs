@@ -63,6 +63,26 @@ body {
     margin-top: 28px;
 }
 
+.related-artist, .track-list{
+    height: 90vh;
+   overflow-y: scroll;
+       overflow-x: hidden;
+}
+
+.preview
+{
+    max-height: 30px;
+    min-width: 95%;
+}
+
+.container{
+        min-width: 100%;
+}
+img.main-img{
+   max-height: 40vw; 
+}
+    
+    
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
@@ -85,3 +105,5 @@ body {
         border-bottom: 0;
     }
 }
+
+

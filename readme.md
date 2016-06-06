@@ -17,3 +17,13 @@ http://codereview.stackexchange.com/questions/111059/dynamically-creating-elemen
 
 #addeventlisterner third parameter
 http://codexexempla.org/curso/curso_4_3_e.php
+
+#patterns
+https://addyosmani.com/resources/essentialjsdesignpatterns/book/
+
+#mvc raw js
+https://neilvb.wordpress.com/2014/01/28/vanilla-javascript-mvc-adventure-part-i/
+
+https://gist.github.com/g6scheme/4157554
+
+https://neilvb.wordpress.com/2014/01/28/vanilla-javascript-mvc-adventure-part-i/

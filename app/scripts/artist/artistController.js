@@ -1,38 +1,55 @@
 (function (window, Services, ViewModels, Utl) {
 
 
-    function ArtistController() {
+    function ArtistController(spotifyId) {
         this.artist;
         this.container = document.getElementById('artist');
+        this.spotifyId = spotifyId
+        this.listen();
         this.activate();
+        
 
     }
 
     ArtistController.prototype.activate = activate
     ArtistController.prototype.clean = clean
+   ArtistController.prototype.listen =listen
 
     // var Artist;
 
     // activate()
 
     //methods
+
+
     function activate() {
-        Services.XHR.getArtist(1, onGetData.bind(this))
+        Services.XHR.getArtist(this.spotifyId, onGetData.bind(this))
 
         function onGetData(data) {
             if (!data) {
                 alert('sorry, no data to display')
                 return
             }
-            console.log(data)
+            this.clean()
+            // console.log(data)
             this.artist = new ViewModels.Artist(data);
             this.container.appendChild(this.artist.getArtistElement())
+        }
+    }
+
+    function listen() {
+        window.events.on('changeId', onChangeId.bind(this))
+
+        function onChangeId(id) {
+            this.spotifyId = id
+            this.activate()
         }
     }
 
     function clean() {
         Utl.cleanNode(this.container)
     }
+
 
 
     window.Controllers = window.Controllers || {}

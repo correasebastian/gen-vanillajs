@@ -13,70 +13,48 @@
 
 <body>
     <div class="container">
-        <!--<div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">conde-nast</h3>
-            </div>
-
-            <div class="jumbotron">
-                <h1>Yo VanillaJS</h1>
-                <p class="lead">Kickin' it old school.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Word to your mother</a></p>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>yo vanillajs:module "modulename"</h4>
-                    <p>Use the vanillajs:module subgenerator to quickly get a new Javascript module/class on the scene, you know what I mean?</p>
-                </div>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>test test baby</h4>
-                    <p>As new modules are created, they will automatically be included in the QUnit test suite - just add your assertions to tests/test.js and "grunt test" boyyyyyyyy!</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                 <p>&copy; A1A Beachfront Ave.</p>
-            </div>-->
-
         <div class="row">
-            <div class="col-sm-3 col-md-3">
+            <div class="col-sm-3 col-md-3 related-artist">
+                <h3>Related Artist</h3>
                 <ul id="ulRelated">
                 </ul>
             </div>
-            <div class="col-sm-5 col-md-5">
+            <div class="col-sm-5 col-md-6 main-artist">
+                <!--<h3>Artist</h3>-->
                 <div id="artist">
                 </div>
             </div>
-            <div class="col-sm-4 col-md-4">.col-sm-4</div>
+            <div class="col-sm-4 col-md-3 track-list">
+                <h3>Tracks</h3>
+                <div id="tracks">
+
+                </div>
+            </div>
         </div>
 
 
 
     </div>
-    <script src="bower_components/jquery/jquery.min.js"></script>
+    
     <!-- Begin VanillaJS Modules -->
-    <!-- End VanillaJS Modules -->
-    <script src="scripts/errorHandler.js"></script>
-    <script src="scripts/utilities.js"></script>
+   
+    <script src="scripts/common/errorHandler.js"></script>
+    <script src="scripts/common/utilities.js"></script>
+    <script src="scripts/common/xhrService.js"></script>
+      <script src="scripts/common/pubSub.js"></script>
 
+    <script src="scripts/relatedArtist/relatedViewModel.js"></script>
+    <script src="scripts/artist/artistViewModel.js"></script>
+    <script src="scripts/tracks/trackViewModel.js"></script>
 
-    <script src="scripts/relatedViewModel.js"></script>
-    <script src="scripts/artistViewModel.js"></script>
-    <script src="scripts/relatedService.js"></script>
-    <script src="scripts/relatedController.js"></script>
-    <script src="scripts/artistController.js"></script>
+    <script src="scripts/relatedArtist/relatedController.js"></script>
+    <script src="scripts/tracks/trackController.js"></script>
+
+    <script src="scripts/artist/artistController.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="scripts/author.js"></script>
 
 
+ <!-- End VanillaJS Modules -->
 
 </body>
 

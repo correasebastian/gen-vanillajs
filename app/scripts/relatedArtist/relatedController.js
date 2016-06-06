@@ -1,14 +1,17 @@
 (function (window, Services, ViewModels, Utl) {
 
 
-    function RelatedArtistController() {
+    function RelatedArtistController(spotifyId) {
         this.relatedArtists = []
         this.container = document.getElementById('ulRelated');
+        this.spotifyId = spotifyId
+        this.listen();
         this.activate();
     }
 
     RelatedArtistController.prototype.activate = activate
     RelatedArtistController.prototype.clean = clean
+    RelatedArtistController.prototype.listen =listen
 
     // RelatedArtistController.prototype.activate = activate
     // var relatedArtists = []
@@ -18,13 +21,14 @@
 
     //methods
     function activate() {
-        Services.XHR.getRealtedArtist(1, onGetData.bind(this))
+        Services.XHR.getRealtedArtist(this.spotifyId, onGetData.bind(this))
 
         function onGetData(data) {
             if (!data) {
-                alert('sorry, no data to display')
+                alert('sorry, no related artist  to display')
                 return
             }
+            this.clean()
             this.relatedArtists = data.map(everyArtist.bind(this))
             // console.log(relatedArtists)
         }
@@ -37,6 +41,15 @@
             //append to the main container
             this.container.appendChild(newArtist.getArtistElement())
             return newArtist
+        }
+    }
+
+    function listen() {
+        window.events.on('changeId', onChangeId.bind(this))
+
+        function onChangeId(id) {
+            this.spotifyId = id
+            this.activate()
         }
     }
 

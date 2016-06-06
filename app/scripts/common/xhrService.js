@@ -12,12 +12,14 @@
     //api for the service
     var service = {
         getRealtedArtist: getRealtedArtist,
-        getArtist: getArtist
+        getArtist: getArtist,
+        getTracks: getTracks
+
     }
 
     ///methods definition
     function getRealtedArtist(id, cb) {
-        var relatedUrl = rootUrl + 'artists/4dpARuHxo51G3z768sgnrY/related-artists'
+        var relatedUrl = rootUrl + 'artists/'+ id +'/related-artists'
         var relatedArtists = []
         function normalize(data) {
             if (typeof data === 'object' && data.artists)
@@ -28,9 +30,21 @@
         xhr(relatedUrl, normalize)
     }
 
+
+    function getTracks(id, cb) {
+        var tracksUrl = rootUrl + 'artists/' + id + '/top-tracks?country=US'
+        var tracks = []
+        function normalize(data) {
+            if (typeof data === 'object' && data.tracks)
+                tracks = data.tracks
+            cb(tracks)
+
+        }
+        xhr(tracksUrl, normalize)
+    }
     function getArtist(id, cb) {
 
-        var artistUrl = rootUrl + 'artists/4dpARuHxo51G3z768sgnrY'
+        var artistUrl = rootUrl + 'artists/' + id
         var artist
         function normalize(data) {
             debugger

@@ -26,7 +26,7 @@
         var template = [
             '<div class="some-directive">',
             '<img src="' + this.imgs[this.imgs.length - 1].url + '">',
-            '<h4>' + this.name + '</h4>',
+            // '<h4>' + this.name + '</h4>',
             '</div>'
         ].join('')
 
@@ -43,6 +43,7 @@
 
             e.preventDefault()
             console.log('on click', this)
+            window.events.emit('changeId',this.id)
         }
 
         mainDiv.appendChild(ancher)
